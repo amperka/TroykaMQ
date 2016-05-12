@@ -11,12 +11,13 @@ BaseMQ::BaseMQ(uint8_t pin, uint8_t pinHeater) {
   _prMillis = 0;
 }
 
+// калибровка датчика
 void BaseMQ::calibrate(float ro) {
   _ro = ro;
   _stateCalibrate = true;
 }
 
-// калиброка датчика
+// калибровка датчика
 void BaseMQ::calibrate() {
   float ro = 0;
   for (int i = 0; i < MQ_SAMPLE_TIMES; i++) {
@@ -47,7 +48,7 @@ void BaseMQ::heaterPwrOff() {
   _heater = false;
 }
 
-// сопративление датчика
+// сопротивление датчика
 float BaseMQ::calculateResistance(int rawAdc) {
   float vrl = rawAdc*(5.0 / 1023);
   float rsAir = (5.0 - vrl)/vrl*getRL();
@@ -78,14 +79,14 @@ float BaseMQ::readRatio() {
 }
 
 bool BaseMQ::heatingCompleted() {
-  if ((_heater) && (!_cooler) && (millis() - _prMillis > 3000))
+  if ((_heater) && (!_cooler) && (millis() - _prMillis > 60000))
     return true;
   else
     return false;
 }
 
 bool BaseMQ::coolanceCompleted() {
-  if ((_heater) && (_cooler) && (millis() - _prMillis > 5000))
+  if ((_heater) && (_cooler) && (millis() - _prMillis > 90000))
     return true;
   else
     return false;
