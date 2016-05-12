@@ -35,7 +35,7 @@ void loop()
   }
   // если прошёл интевал нагрева датчика
   // и калибровка была совершена
-  if (!mq7.isCalibrated() && mq7.atHeatCycleEnd()) {
+  if (mq7.isCalibrated() && mq7.atHeatCycleEnd()) {
     // выводим отношения текущего сопротивление датчика
     // к сопротивлению датчика в чистом воздухе (Rs/Ro)
     Serial.print("Ratio: ");
