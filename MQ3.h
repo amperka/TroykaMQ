@@ -10,7 +10,6 @@ public:
 	float readAlcoholMgL();
 	float readAlcoholPpm();
 private:
-	float readMgL(float a, float b);
 	// Резистор установленный на плату (кОм)
 	virtual int getRL() const { return 200; }
 	// коефициент чистого воздуха

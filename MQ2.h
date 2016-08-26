@@ -12,7 +12,6 @@ public:
 	unsigned long readSmoke();
 	unsigned long readHydrogen();
 private:
-	int readPpm(float a, float b);
 	// Резистор установленный на плату (кОм)
 	virtual int getRL() const { return 5; }
 	// коефициент чистого воздуха

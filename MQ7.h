@@ -9,7 +9,6 @@ public:
 	MQ7(uint8_t pin, uint8_t pinHeater);
 	unsigned long readCarbonMonoxide();
 private:
-	int readPpm(float a, float b);
 	// Резистор установленный на плату (кОм)
 	virtual int getRL() const { return 10; }
 	// коефициент чистого воздуха

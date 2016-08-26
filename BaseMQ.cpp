@@ -66,6 +66,11 @@ float BaseMQ::readRs() {
   return rs;
 }
 
+int readScaled(float a, float b) {
+  float ratio = readRs()/_ro;
+  return pow(M_E, (log(ratio)-b)/a);
+}
+
 float BaseMQ::getRo() {
   return _ro;
 }
