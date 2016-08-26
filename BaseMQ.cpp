@@ -26,8 +26,7 @@ void BaseMQ::calibrate() {
   }
   ro = ro/MQ_SAMPLE_TIMES;
   ro = ro/getRoInCleanAir();
-  _ro = ro;
-  _stateCalibrate = true;
+  calibrate (ro);
 }
 
 void BaseMQ::heaterPwrHigh() {
@@ -67,7 +66,7 @@ float BaseMQ::readRs() {
 }
 
 int readScaled(float a, float b) {
-  float ratio = readRs()/_ro;
+  float ratio = readRatio();
   return pow(M_E, (log(ratio)-b)/a);
 }
 
@@ -80,7 +79,7 @@ bool BaseMQ::isCalibrated() {
 }
 
 float BaseMQ::readRatio() {
-  return readRs()/_ro;
+  return readRs()/getRo();
 }
 
 bool BaseMQ::heatingCompleted() {
