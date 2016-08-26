@@ -1,14 +1,14 @@
 #include "BaseMQ.h"
 
-BaseMQ::BaseMQ(uint8_t pin) {
-  _pin = pin;
+BaseMQ::BaseMQ(uint8_t pin) :
+  _pin (pin) {
 }
 
-BaseMQ::BaseMQ(uint8_t pin, uint8_t pinHeater) {
-  _pin = pin;
-  _pinHeater = pinHeater;
+BaseMQ::BaseMQ(uint8_t pin, uint8_t pinHeater) : 
+  _pin (pin),
+  _pinHeater (pinHeater)
+{
   pinMode(_pinHeater, OUTPUT);
-  _prMillis = 0;
 }
 
 // калибровка датчика
@@ -48,14 +48,14 @@ void BaseMQ::heaterPwrOff() {
 }
 
 // сопротивление датчика
-float BaseMQ::calculateResistance(int rawAdc) {
+float BaseMQ::calculateResistance(int rawAdc) const {
   float vrl = rawAdc*(5.0 / 1023);
   float rsAir = (5.0 - vrl)/vrl*getRL();
   return rsAir;
 }
 
 // считывание датчика
-float BaseMQ::readRs() {
+float BaseMQ::readRs() const {
   float rs = 0;
   for (int i = 0; i < MQ_SAMPLE_TIMES; i++) {
     rs += calculateResistance(analogRead(_pin));
@@ -65,31 +65,23 @@ float BaseMQ::readRs() {
   return rs;
 }
 
-unsigned long readScaled(float a, float b) {
+unsigned long BaseMQ::readScaled(float a, float b) const {
   float ratio = readRatio();
   return exp((log(ratio)-b)/a);
 }
 
-float BaseMQ::getRo() {
-  return _ro;
-}
-
-bool BaseMQ::isCalibrated() {
-  return _stateCalibrate;
-}
-
-float BaseMQ::readRatio() {
+float BaseMQ::readRatio() const {
   return readRs()/getRo();
 }
 
-bool BaseMQ::heatingCompleted() {
+bool BaseMQ::heatingCompleted() const {
   if ((_heater) && (!_cooler) && (millis() - _prMillis > 60000))
     return true;
   else
     return false;
 }
 
-bool BaseMQ::coolanceCompleted() {
+bool BaseMQ::coolanceCompleted() const {
   if ((_heater) && (_cooler) && (millis() - _prMillis > 90000))
     return true;
   else
