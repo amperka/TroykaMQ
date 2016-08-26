@@ -31,7 +31,7 @@ protected:
 	uint8_t _pin;
 	uint8_t _pinHeater;
 	float readRs();
-	int readScaled(float a, float b);
+	unsigned long readScaled(float a, float b);
 	float calculateResistance(int rawAdc);
 	virtual float getRoInCleanAir() const = 0;
 	virtual int getRL() const = 0;

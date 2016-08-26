@@ -65,7 +65,7 @@ float BaseMQ::readRs() {
   return rs;
 }
 
-int readScaled(float a, float b) {
+unsigned long readScaled(float a, float b) {
   float ratio = readRatio();
   return exp((log(ratio)-b)/a);
 }
