@@ -10,7 +10,6 @@ public:
 	unsigned long readLPG();
 	unsigned long readMethane();
 private:
-	int readPpm(float a, float b);
 	// Резистор установленный на плату (кОм)
 	virtual int getRL() const { return 20; }
 	// коефициент чистого воздуха
