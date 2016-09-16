@@ -96,13 +96,17 @@ void BaseMQ::cycleHeat() {
   _heater = false;
   _cooler = false;
   heaterPwrHigh();
+#ifdef MQDEBUG
   Serial.println("Heated sensor");
+#endif //MQDEBUG
 }
 
 bool BaseMQ::atHeatCycleEnd() {
   if (heatingCompleted()) {
     heaterPwrLow();
+#ifdef MQDEBUG
     Serial.println("Cool sensor");
+#endif //MQDEBUG
     return false;
   } else if (coolanceCompleted()) {
     heaterPwrOff();
