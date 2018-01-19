@@ -19,22 +19,22 @@ MQ135 KEYWORD1  MQ135
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-calibrate			KEYWORD2
-heaterPwrHigh		KEYWORD2
-heaterPwrLow		KEYWORD2
-heaterPwrOff		KEYWORD2
-cycleHeat			KEYWORD2
-atHeatCycleEnd		KEYWORD2
-heatingCompleted	KEYWORD2
-coolanceCompleted	KEYWORD2
-readRatio			KEYWORD2
-isCalibrated		KEYWORD2	
-getRo				KEYWORD2
-readLPG				KEYWORD2
-readMethane			KEYWORD2
-readSmoke			KEYWORD2
-readHydrogen		KEYWORD2
-readAlcoholMgL		KEYWORD2
-readAlcoholPpm		KEYWORD2
-readCarbonMonoxide	KEYWORD2
-readCO2				KEYWORD2
+calibrate           KEYWORD2
+heaterPwrHigh		    KEYWORD2
+heaterPwrLow		    KEYWORD2
+heaterPwrOff		    KEYWORD2
+cycleHeat			      KEYWORD2
+atHeatCycleEnd		  KEYWORD2
+heatingCompleted	  KEYWORD2
+coolanceCompleted	  KEYWORD2
+readRatio			      KEYWORD2
+isCalibrated		    KEYWORD2	
+getRo				        KEYWORD2
+readLPG				      KEYWORD2
+readMethane			    KEYWORD2
+readSmoke			      KEYWORD2
+readHydrogen		    KEYWORD2
+readAlcoholMgL		  KEYWORD2
+readAlcoholPpm		  KEYWORD2
+readCarbonMonoxide  KEYWORD2
+readCO2				      KEYWORD2
