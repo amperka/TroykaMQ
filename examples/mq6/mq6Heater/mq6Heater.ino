@@ -26,6 +26,9 @@ void loop()
   if (!mq6.isCalibrated() && mq6.heatingCompleted()) {
     // выполняем калибровку датчика на чистом воздухе
     mq6.calibrate();
+    // при знании сопративления датчика на чистом воздухе
+    // можно его указать вручную, допустим 8.2
+    // mq6.calibrate(8.2);
     // выводим сопротивление датчика в чистом воздухе (Ro) в serial-порт
     Serial.print("Ro = ");
     Serial.println(mq6.getRo());

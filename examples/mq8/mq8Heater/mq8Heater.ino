@@ -26,6 +26,9 @@ void loop()
   if (!mq8.isCalibrated() && mq8.heatingCompleted()) {
     // выполняем калибровку датчика на чистом воздухе
     mq8.calibrate();
+    // при знании сопративления датчика на чистом воздухе
+    // можно его указать вручную, допустим 6.1
+    // mq8.calibrate(6.1);
     // выводим сопротивление датчика в чистом воздухе (Ro) в serial-порт
     Serial.print("Ro = ");
     Serial.println(mq8.getRo());

@@ -27,6 +27,9 @@ void loop()
   if (!mq7.isCalibrated() && mq7.atHeatCycleEnd()) {
     // выполняем калибровку датчика на чистом воздухе
     mq7.calibrate();
+    // при знании сопративления датчика на чистом воздухе
+    // можно его указать вручную, допустим 7.2
+    // mq7.calibrate(7.2);
     // выводим сопротивление датчика в чистом воздухе (Ro) в serial-порт
     Serial.print("Ro = ");
     Serial.println(mq7.getRo());

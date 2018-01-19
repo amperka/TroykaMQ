@@ -13,5 +13,5 @@ float MQ3::readAlcoholMgL() {
 }
 
 float MQ3::readAlcoholPpm() {
-  return readScaled(-0.66, -0.62)*2.2;
+  return readScaled(-0.66, -0.62) * 2.2;
 }

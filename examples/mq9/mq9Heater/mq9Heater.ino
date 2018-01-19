@@ -27,6 +27,9 @@ void loop()
   if (!mq9.isCalibrated() && mq9.atHeatCycleEnd()) {
     // выполняем калибровку датчика на чистом воздухе
     mq9.calibrate();
+    // при знании сопративления датчика на чистом воздухе
+    // можно его указать вручную, допустим 7.2
+    // mq9.calibrate(7.2);
     // выводим сопротивление датчика в чистом воздухе (Ro) в serial-порт
     Serial.print("Ro = ");
     Serial.println(mq9.getRo());
