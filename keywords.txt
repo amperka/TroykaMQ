@@ -14,7 +14,7 @@ MQ6		KEYWORD1	MQ6
 MQ7		KEYWORD1	MQ7
 MQ8		KEYWORD1	MQ8
 MQ9		KEYWORD1	MQ9
-MQ135	KEYWORD1	MQ135
+MQ135 KEYWORD1  MQ135
 
 #######################################
 # Methods and Functions (KEYWORD2)
