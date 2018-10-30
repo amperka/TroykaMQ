@@ -23,6 +23,7 @@ BaseMQ::BaseMQ(uint8_t pin, uint8_t pinHeater) {
 // фиксированая калибровка датчика
 // при знании сопративления датчика на чистом воздухе
 void BaseMQ::calibrate(float ro) {
+    Serial.println(OPERATING_VOLTAGE);
   _ro = ro;
   _stateCalibrate = true;
 }

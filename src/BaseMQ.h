@@ -31,7 +31,7 @@
 #if defined(__AVR__)
 #define OPERATING_VOLTAGE   5.0
 
-#elif defined(__SAM3X8E__) || defined(__SAM3A8C__) || defined(__SAM3A4C__) || defined(__SAMD21G18A__) || defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32) || defined(__arm__)
+#else
 #define OPERATING_VOLTAGE   3.3
 #endif
 
@@ -49,17 +49,13 @@ public:
     bool heatingCompleted() const;
     bool coolanceCompleted() const;
     float readRatio() const;
-    inline bool isCalibrated() const {
-        return _stateCalibrate;
-    };
-    inline float getRo() const {
-        return _ro;
-    };
+    inline bool isCalibrated() const { return _stateCalibrate; };
+    inline float getRo() const { return _ro; };
 
 protected:
     float readScaled(float a, float b) const;
     virtual float getRoInCleanAir() const = 0;
-    virtual int getRL() const = 0;
+    virtual float getRL() const = 0;
 
 private:
     bool _heater = false;

@@ -4,7 +4,7 @@
 #include "BaseMQ.h"
 
 // резистор установленный на плату (кОм)
-#define MQ9_RL_BOARD            10
+#define MQ9_RL_BOARD            10.0
 // коефициент чистого воздуха из графика
 #define MQ9_RO_IN_CLEAR_AIR     9.8
 
@@ -17,7 +17,7 @@ public:
     unsigned long readCarbonMonoxide();
 private:
     // Резистор установленный на плату (кОм)
-    virtual int getRL() const { return MQ9_RL_BOARD; }
+    virtual float getRL() const { return MQ9_RL_BOARD; }
     // коефициент чистого воздуха
     virtual float getRoInCleanAir() const { return MQ9_RO_IN_CLEAR_AIR; }
 };

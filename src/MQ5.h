@@ -4,7 +4,7 @@
 #include "BaseMQ.h"
 
 // резистор установленный на плату (кОм)
-#define MQ5_RL_BOARD            20
+#define MQ5_RL_BOARD            20.0
 // коефициент чистого воздуха из графика
 #define MQ5_RO_IN_CLEAR_AIR     6.5
 
@@ -15,7 +15,7 @@ public:
     unsigned long readLPG();
     unsigned long readMethane();
 private:
-    virtual int getRL() const { return MQ5_RL_BOARD; }
+    virtual float getRL() const { return MQ5_RL_BOARD; }
     virtual float getRoInCleanAir() const { return MQ5_RO_IN_CLEAR_AIR; }
 };
 

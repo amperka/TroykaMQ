@@ -4,9 +4,9 @@
 #include "BaseMQ.h"
 
 // резистор установленный на плату (кОм)
-#define MQ3_RL_BOARD            200
+#define MQ3_RL_BOARD            200.0
 // коефициент чистого воздуха из графика
-#define MQ3_RO_IN_CLEAR_AIR     60
+#define MQ3_RO_IN_CLEAR_AIR     60.0
 
 class MQ3 : public BaseMQ {
 public: 
@@ -15,7 +15,7 @@ public:
     float readAlcoholMgL();
     float readAlcoholPpm();
 private:
-    virtual int getRL() const { return MQ3_RL_BOARD; }
+    virtual float getRL() const { return MQ3_RL_BOARD; }
     virtual float getRoInCleanAir() const { return MQ3_RO_IN_CLEAR_AIR; }
 };
 
